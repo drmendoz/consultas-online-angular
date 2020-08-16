@@ -1,0 +1,65 @@
+[
+  {
+    "especialidad": "Psicóloga",
+    "nombre": "Psic. Eliza Armaza",
+    "descripcion": "Psicologa, sexologa clinica y sex coach, presidenta de la fundación Unámonos.",
+    "reviews": 85,
+    "imagen": "https://threewill.com/wp-content/uploads/linda-ryan-full-resolution-cropped-565x565.jpg"
+  },
+  {
+    "especialidad": "Psicólogo",
+    "nombre": "Psic. Ernesto Ricalde",
+    "descripcion": "Experto en psicología familiar, arreglo de asuntos controversiales en el hogar.",
+    "reviews": 59,
+    "imagen":"https://www.mcconnellfoundation.org/wp-content/uploads/2020/01/rob-vargas-facilities-2-565x565.jpg"
+  },
+  {
+    "especialidad": "Psicólogo",
+    "nombre": "Psic. Veronica Canceles",
+    "descripcion": "Experta en neurociencias, neuropsicología, conductas, emociones y sentimientos del ser humano.",
+    "reviews": 65,
+    "imagen":"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQsLTp2qGGuJ1v9TdH21lFz9Zxbajku2g1d8g&usqp=CAU"
+  },
+  {
+    "especialidad": "Psicólogo",
+    "nombre": "Psic. Cristian Roseri",
+    "descripcion": "Psicólogo forense para procesos judiciales.",
+    "reviews": 91,
+    "imagen":"https://www.bpoc.com/wp-content/uploads/2013/10/Karmanian-18101-565x565.jpg"
+  },
+  {
+    "especialidad": "Psicólogo",
+    "nombre": "Psic. Mario Carrasco",
+    "descripcion": "Experto en psicología de educación y desarrollo.",
+    "reviews": 32,
+    "imagen":"https://www.mollerinstitute.com/wp-content/uploads/2019/11/Javier-Marcos-565x565.jpg"
+  },
+  {
+    "especialidad": "Psicólogo",
+    "nombre": "Psic. Michael Budston",
+    "descripcion": "Experto en psicología del deporte.",
+    "reviews": 22,
+    "imagen":"https://threewill.com/wp-content/uploads/brandon-holloway-full-resolution-cropped-565x565.jpg"
+  },
+  {
+    "especialidad": "Psicólogo",
+    "nombre": "Psic. Moreno Sandoval",
+    "descripcion": "Experto en psicología social orientada a la investigación e intervención sobre problemas que afectan a comunidades específicas.",
+    "reviews": 63,
+    "imagen":"https://threewill.com/wp-content/uploads/grant-lewis-full-resolution-cropped-565x565.jpg"
+  },
+  {
+    "especialidad": "Psicólogo",
+    "nombre": "Psic. Calvin Height",
+    "descripcion": "Psicología básica y experimental volcada en la investigación de los procesos psicológicos más generales que tienen que ver con el comportamiento humano.",
+    "reviews": 81,
+    "imagen":"https://i2.wp.com/hhangus.com/wp-content/uploads/2020/01/Cabral-Sam-565X565.jpg?resize=565%2C565&ssl=1"
+  },
+  {
+    "especialidad": "Psicólogo",
+    "nombre": "Psic. Julio Herrera",
+    "descripcion": "Expero en psicología clínica y de salud, investigación e intervención centrada en los problemas psicológicos más o menos severos que afectan a la calidad de vida de las personas.",
+    "reviews": 82,
+    "imagen":"https://www.bpoc.com/wp-content/uploads/2013/10/david1-565x565.jpg"
+  }
+]
