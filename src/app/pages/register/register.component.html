@@ -1,0 +1,58 @@
+<app-top-bar></app-top-bar>
+<main>
+    <div class="bg_color_2">
+        <div class="container margin_60_35">
+            <div id="register">
+                <h1>Por favor, regístrate en PsychoBooking!</h1>
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        <form (ngSubmit)="registrar()" #form="ngForm">
+                            <div class="box_form">
+                                <div class="form-group">
+                                    <label>Nombre</label>
+                                    <input [(ngModel)]="usuario.nombre" type="text" class="form-control" placeholder="Your name" name="nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellido</label>
+                                    <input [(ngModel)]="usuario.apellido" type="text" class="form-control" placeholder="Your last name" name="apellido">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input [(ngModel)]="usuario.email"  type="email" class="form-control" placeholder="Your email address" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña</label>
+                                    <input type="password" class="form-control" id="password1" name="password1" placeholder="Your password" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirmar Contraseña</label>
+                                    <input [(ngModel)]="usuario.contrasena"  type="password" class="form-control" id="password2" name="password2" placeholder="Confirm password" name="password">
+                                </div>
+                                <div id="pass-info" class="clearfix"></div>
+                                <div class="checkbox-holder text-left">
+                                    <div class="checkbox_2">
+                                        <input type="checkbox" value="accept_2" id="check_2" name="check_2" checked>
+                                        <label for="check_2"><span>Acepto los <strong>Términos &amp; Condiciones</strong></span></label>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center add_top_30">
+                                    <input class="btn_1" type="submit" value="Submit">
+                                </div>
+                            </div>
+                            <p class="text-center"><small>Al aceptar los términos y condiciones nos dás la posibilidad de enviarte mensajes con información relevante y conservar tus datos personales con la mayor privacidad en nuestra base de datos.</small></p>
+                        </form>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /register -->
+        </div>
+    </div>
+</main>
+<footer></footer>
+<script src="../../../assets/js/jquery-2.2.4.min.js"></script>
+<script src="../../../assets/js/common_scripts.min.js"></script>
+<script src="../../../assets/js/functions.js"></script>
+     
+	<!-- SPECIFIC SCRIPTS -->
+<script src="../../../assets/js/pw_strenght.js"></script>
