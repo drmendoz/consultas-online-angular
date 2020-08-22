@@ -9,6 +9,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NoticiasComponent } from './pages/noticias/noticias.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     TopBarComponent,
     InicioComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NoticiasComponent
   ],
   imports: [
     BrowserModule,
