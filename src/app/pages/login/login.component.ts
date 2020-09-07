@@ -11,7 +11,8 @@ export class LoginComponent implements OnInit {
 
   login = {
     email: '',
-    contrasena: ''
+    contrasena: '',
+    recuerdame: false
   };
 
   constructor(public service:RequestService,private router: Router) { }
@@ -21,10 +22,14 @@ export class LoginComponent implements OnInit {
 
   async inicioSesion() {
     const body = JSON.stringify(this.login);
-    const response = await this.service.login(this.login);
+    const response = await this.service.login(body);
     if (response) {
-      
-      this.router.navigateByUrl('/');
+      if (this.login.recuerdame) {
+        localStorage.setItem('pscorreo', this.login.email);
+      } else {
+        localStorage.removeItem('pscorreo');
+      }
+      this.router.navigateByUrl('/home');
     }
   }
 }

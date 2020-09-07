@@ -1,0 +1,109 @@
+<div class="layer"></div>
+    <!-- Mobile menu overlay mask -->
+
+    <div id="preloader">
+        <div data-loader="circle-side"></div>
+    </div>
+    <app-top-bar></app-top-bar>
+    <main>
+        <div>
+            <iframe id="map_contact" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15947.93653137347!2d-79.91258578380936!3d-2.1597380078715296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d6d8eff7b88f7%3A0x2dee947c05d102a7!2sPsiconCiencia%20S.A.!5e0!3m2!1ses-419!2sec!4v1594669805956!5m2!1ses-419!2sec"
+                width="600" height="450" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+        <!-- /map -->
+
+        <div class="container margin_60_35">
+            <div class="row">
+                <aside class="col-lg-3 col-md-4">
+                    <div id="contact_info">
+                        <h3>Información de Contacto</h3>
+                        <p>
+                            Urdesa Norte - Guayaquil, EC<br> +593 985652891<br>
+                            <a href="#">info@psychobooking.com</a>
+                        </p>
+                        <h4>Obtener dirección</h4>
+                        <form action="http://maps.google.com/maps" method="get" target="_blank">
+                            <div class="form-group">
+                                <input type="text" name="saddr" placeholder="Escribe tu dirección" class="form-control styled">
+                                <input type="hidden" name="daddr" value="Bálsamos 920, Guayaquil 090511">
+                                <!-- Write here your end point -->
+                            </div>
+                            <input type="submit" value="Obtener dirección" class="btn_1 add_bottom_45">
+                        </form>
+                        <ul>
+                            <li><strong>Administración</strong>
+                                <a href="tel://003823932342">+593 985652898</a><br><a href="tel://+593985652898">admin@psichobooking.com</a><br>
+                                <small>Lunes a Viernes 9am - 7pm</small>
+                            </li>
+                            <li><strong>Preguntas</strong>
+                                <a href="tel://003823932342">+593 985652897</a><br><a href="tel://+593985652897">preguntas@psychobooking.com</a><br>
+                                <p><small>Lunes a Viernes 9am - 7pm</small></p>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+                <!--/aside -->
+                <div class=" col-lg-8 col-md-8 ml-auto">
+                    <div class="box_general">
+                        <h3>Contáctenos</h3>
+                        <p>
+                            ¿Necesitas algo? No dudes en escribirnos.
+                        </p>
+                        <div>
+                            <div id="message-contact"></div>
+                            <form method="post" action="assets/contact.php" id="contactform">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="name_contact" name="name_contact" placeholder="Nombre">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="lastname_contact" name="lastname_contact" placeholder="Apellido">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="email" id="email_contact" name="email_contact" class="form-control" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" id="phone_contact" name="phone_contact" class="form-control" placeholder="Número de Teléfono">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea rows="5" id="message_contact" name="message_contact" class="form-control" style="height:100px;" placeholder="Detalles"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select class="browser-default custom-select">
+												<option value="1">Ecuador</option>
+  												<option value="2">Peru</option>
+												 <option value="3">Colombia</option>
+												</select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" value="Enviar" class="btn_1 add_top_20" id="submit-contact">
+                            </form>
+                        </div>
+                        <!-- /col -->
+                    </div>
+                </div>
+                <!-- /col -->
+            </div>
+            <!-- End row -->
+        </div>
+        <!-- /container -->
+    </main>
+    <app-footer></app-footer>

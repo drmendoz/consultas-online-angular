@@ -10,6 +10,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
+import { RegistrarPsicologoComponent } from './pages/registrar-psicologo/registrar-psicologo.component';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { ContactenosComponent } from './pages/contactenos/contactenos.component';
+import { FaqComponent } from './pages/faq/faq.component';
+import { PsicologosComponent } from './pages/psicologos/psicologos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { NoticiasComponent } from './pages/noticias/noticias.component';
     InicioComponent,
     LoginComponent,
     RegisterComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    RegistrarPsicologoComponent,
+    NosotrosComponent,
+    ContactenosComponent,
+    FaqComponent,
+    PsicologosComponent
   ],
   imports: [
     BrowserModule,
