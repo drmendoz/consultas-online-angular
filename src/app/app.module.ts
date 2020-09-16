@@ -15,6 +15,8 @@ import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { ContactenosComponent } from './pages/contactenos/contactenos.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { PsicologosComponent } from './pages/psicologos/psicologos.component';
+import { CrearConsultaComponent } from './pages/crear-consulta/crear-consulta.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { PsicologosComponent } from './pages/psicologos/psicologos.component';
     NosotrosComponent,
     ContactenosComponent,
     FaqComponent,
-    PsicologosComponent
+    PsicologosComponent,
+    CrearConsultaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

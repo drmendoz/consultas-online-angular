@@ -17,19 +17,23 @@ export class LoginComponent implements OnInit {
 
   constructor(public service:RequestService,private router: Router) { }
 
-  ngOnInit(): void {
+  async ngOnInit(){
+    if (localStorage.pscorreo) {
+      this.login.email = localStorage.pscorreo;
+      this.login.recuerdame = true;
+    }
   }
 
   async inicioSesion() {
-    const body = JSON.stringify(this.login);
-    const response = await this.service.login(body);
+    
+    const response = await this.service.login(this.login);
     if (response) {
       if (this.login.recuerdame) {
-        localStorage.setItem('pscorreo', this.login.email);
+        localStorage.setItem('psycorreo', this.login.email);
       } else {
-        localStorage.removeItem('pscorreo');
+        localStorage.removeItem('psycorreo');
       }
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/home/inicio');
     }
   }
 }

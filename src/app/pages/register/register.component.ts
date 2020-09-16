@@ -13,11 +13,16 @@ const url ="../../../assets/js/pw_strenght.js"
 export class RegisterComponent implements OnInit {
   
   usuario={
-    email:"",
-    nombre:"",
-    apellido:"",
-    contrasena:""
-  }
+    "nombre": "",
+    "email": "",
+    "contrasena": "",
+    "contrasenaConfirmada":"",
+    "imagen": "",
+    "telefono": "",
+    "UsuarioPaciente": {
+        "edad": ""
+    }
+}
   
   constructor(public service:RequestService,private router: Router) { }
 
@@ -26,7 +31,6 @@ export class RegisterComponent implements OnInit {
   }
 
   async registrar() {
-    const body = JSON.stringify(this.usuario);
     const response = await this.service.registrar(this.usuario);
     if (response) {
       

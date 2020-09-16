@@ -1,10 +1,7 @@
 
 	<div class="layer"></div>
 	<!-- Mobile menu overlay mask -->
-	<div id="preloader">
-		<div data-loader="circle-side"></div>
-	</div>
-    <app-top-bar></app-top-bar>
+	
     <main>
 		<div class="hero_home version_1">
 			<div class="content">
@@ -12,9 +9,8 @@
 				<p>
 					Juntos podemos superar cualquier obstáculo, no esperes más.
 				</p>
-				<form method="GET" action="list.html">
-					<p class="text-center"><a href="/psicologos" class="btn_1 medium">Buscar Psicólogo</a></p>
-				</form>
+				<p class="text-center"><a [routerLink]="['psicologos']" routerLinkActive="active" class="btn_1 medium">Buscar Psicólogo</a></p>
+				
 			</div>
 		</div>
 		<!-- /Hero -->
@@ -47,7 +43,7 @@
 				</div>
 			</div>
 			<!-- /row -->
-			<p class="text-center"><a href="/psicologos" class="btn_1 medium">Buscar Psicólogo</a></p>
+			<p class="text-center"><a [routerLink]="['psicologos']"  routerLinkActive="active" class="btn_1 medium">Buscar Psicólogo</a></p>
 
 		</div>
 		<!-- /container -->
@@ -136,7 +132,6 @@
 		</div>
 		<!-- /app_section -->
     </main>
-    <app-footer></app-footer>
     <div id="toTop"></div>
 	<!-- Back to top button -->
 

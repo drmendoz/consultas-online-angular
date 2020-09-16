@@ -1,31 +1,45 @@
 <header class="header_sticky">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-2 col-3">
                 <div id="logo_home" class="col-sm-3">
-                    <h1><a href="index.html" title="PSYCHOBOOKING">PSYCHOBOOKING</a></h1>
+                    <h1><a [routerLink]="['inicio']" title="PSYCHOBOOKING">PSYCHOBOOKING</a></h1>
                 </div>
             </div>
-            <nav class="col-lg-9 col-6">
+            <nav class="col-lg-8 col-6">
                 <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
                 <ul id="top_access">
-                    <li><a href="/login"><i class="pe-7s-user"></i></a></li>
-                    <li><a href="/register"><i class="pe-7s-add-user"></i></a></li>
+                    
                 </ul>
                 <div class="main-menu">
                     <ul>
-                        <li><a href="index.html">Principal</a></li>
-                        <li><a href="/noticias">Noticias</a></li>
-                        <li><a href="/registrar-psicologo">Registrar Psicólogo</a></li>
-                        <li><a href="/nosotros">Sobre nosotros</a></li>
-                        <li><a href="/contactenos">Contactenos</a></li>
-                        <li><a href="/faq">Faq page</a></li>
-
+                        <li><a [routerLink]="['inicio']" routerLinkActive="active">Principal</a></li>
+                        <li><a [routerLink]="['noticias']" routerLinkActive="active">Noticias</a></li>
+                        <li><a [routerLink]="['registrar-psicologo']" routerLinkActive="active">Registrar Psicólogo</a></li>
+                        <li><a [routerLink]="['nosotros']" routerLinkActive="active">Sobre nosotros</a></li>
+                        <li><a [routerLink]="['contactenos']" routerLinkActive="active">Contactenos</a></li>
+                        <li><a [routerLink]="['faq']" routerLinkActive="active">Faq page</a></li>
+                        
                     </ul>
                 </div>
-                <!-- /main-menu -->
             </nav>
-        </div>
+            <div class="col-lg-2 col-3">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" title="User menu" data-toggle="dropdown">
+                        <figure class="avatar avatar-sm">
+                            <img [src]="service.master.imagen" width="40" height="40" class="rounded-circle" alt="avatar">
+                        </figure>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
+                        <div class="list-group">
+                            <a (click)="service.cerrarSesion()" class="list-group-item text-danger">Cerrar Sesión</a>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            
     </div>
+    </div>
+        
     <!-- /container -->
 </header>

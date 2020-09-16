@@ -15,17 +15,27 @@ export class RequestService {
   
   constructor(private http: HttpClient, private router: Router) {
     moment.locale('es');
+    this.cargarStorage();
   }
 
+  cargarStorage() {
+    if (localStorage.psychodata) {
+      this.master = JSON.parse(localStorage.psychodata);
+    }
+  }
   
   guardarStorage(data: any) {
-    this.master = data;
+    this.master =data;
     localStorage.setItem('psychodata', JSON.stringify(data));
   }
+
   getPsicologos() {
     this.loading = true;
+    const headers = new HttpHeaders({
+      token: this.master.apiKey
+    });
     return new Promise(resolve => {
-      this.http.get(`${environment.apiUrl}/psicologos`).subscribe((response: any) => {
+      this.http.get(`${environment.apiUrl}/psicologos`,{headers}).subscribe((response: any) => {
         this.loading = false;
         resolve([true, response.Psicologos]);
       }, (error: any) => {
@@ -40,17 +50,16 @@ export class RequestService {
 
   login(data: any) {
     this.loading = true;
+    console.log(data)
     return new Promise(resolve => {
-      this.http.post(`${environment.apiUrl}/login`, data).subscribe((response: any) => {
+      this.http.post(`${environment.apiUrl}/auth`, data).subscribe((response: any) => {
        this.loading=false;
-       const user={...response.respuesta.administrador, apiKey: response.respuesta.token}
+       const user={...response.payload, apiKey: response.token}
        this.guardarStorage(user)
+       resolve(true)
       }, (error: any) => {
         this.loading=false;
-        if (error.status==401){
-          return this.showAlert("Usuario y contrasena incorrecta", 'error');
-        }
-        this.showAlert("Error de conexion con el servidor", 'error');
+        this.showAlert(error.error.error.detail, 'error');
         
         resolve(false);
       });
@@ -60,17 +69,13 @@ export class RequestService {
   registrar(data:any){
     this.loading = true;
     return new Promise(resolve => {
-      this.http.post(`${environment.apiUrl}/register`, data).subscribe((response: any) => {
+      this.http.post(`${environment.apiUrl}/pacientes`, data).subscribe((response: any) => {
         this.loading = false;
+        this.showAlert("Usuario creado exitosamente",'success')
         resolve(true)
       }, (error: any) => {
-        if (error.status=200){
-          this.showAlert("Usuario creado exitosamente",'success')
-          resolve(true)
-          return
-        }
         this.loading = false;
-        this.showAlert("Error al registrar usuario", 'error');
+        this.showAlert(error.error.error.title, 'error');
         
         resolve(false);
       });
@@ -107,7 +112,7 @@ export class RequestService {
   
   cerrarSesion() {
     this.master = null;
-    localStorage.removeItem('masterdata');
+    localStorage.removeItem('psychodata');
     this.router.navigateByUrl('/login');
   }
 

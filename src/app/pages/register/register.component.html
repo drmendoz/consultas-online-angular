@@ -3,7 +3,6 @@
 	<div id="preloader">
 		<div data-loader="circle-side"></div>
 	</div>
-<app-top-bar></app-top-bar>
 <main>
     <div class="bg_color_2">
         <div class="container margin_60_35">
@@ -15,23 +14,31 @@
                             <div class="box_form">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input [(ngModel)]="usuario.nombre" type="text" class="form-control" placeholder="Your name" name="nombre">
-                                </div>
-                                <div class="form-group">
-                                    <label>Apellido</label>
-                                    <input [(ngModel)]="usuario.apellido" type="text" class="form-control" placeholder="Your last name" name="apellido">
+                                    <input [(ngModel)]="usuario.nombre" type="text" class="form-control" placeholder="Ingrese nombres completos" name="nombre">
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input [(ngModel)]="usuario.email"  type="email" class="form-control" placeholder="Your email address" name="email">
+                                    <input [(ngModel)]="usuario.email"  type="email" class="form-control" placeholder="Ingrese correo electronico" name="email">
                                 </div>
                                 <div class="form-group">
                                     <label>Contraseña</label>
-                                    <input type="password" class="form-control" id="password1" name="password1" placeholder="Your password" name="password">
+                                    <input [(ngModel)]="usuario.contrasenaConfirmada" type="password" class="form-control" id="password1" name="password1" placeholder="Contrasena" name="password">
                                 </div>
                                 <div class="form-group">
                                     <label>Confirmar Contraseña</label>
-                                    <input [(ngModel)]="usuario.contrasena"  type="password" class="form-control" id="password2" name="password2" placeholder="Confirm password" name="password">
+                                    <input [(ngModel)]="usuario.contrasena"  type="password" class="form-control" id="password2" name="password2" placeholder="Confirme contrasena" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Telefono</label>
+                                    <input [(ngModel)]="usuario.telefono"  type="tel" class="form-control" id="phone" name="phone" placeholder="Telefono" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label>Edad</label>
+                                    <input [(ngModel)]="usuario.UsuarioPaciente.edad"  type="tel" class="form-control" id="edad" name="edad" placeholder="Edad" name="edad">
+                                </div>
+                                <div class="form-group">
+                                    <label>Imagen</label>
+                                    <input [(ngModel)]="usuario.imagen"  type="text" class="form-control" id="imagen" name="imagen" placeholder="Ingrese url de imagen" name="imagen">
                                 </div>
                                 <div id="pass-info" class="clearfix"></div>
                                 <div class="checkbox-holder text-left">
@@ -41,7 +48,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group text-center add_top_30">
-                                    <input class="btn_1" type="submit" value="Submit">
+                                    <input class="btn_1" type="submit" value="Registrarse">
+                                </div>
+                                <div class="form-group text-center add_top_30">
+                                   <a href="/login"> <div class="btn_1" >Iniciar Sesion</div></a>
                                 </div>
                             </div>
                             <p class="text-center"><small>Al aceptar los términos y condiciones nos dás la posibilidad de enviarte mensajes con información relevante y conservar tus datos personales con la mayor privacidad en nuestra base de datos.</small></p>
@@ -54,6 +64,5 @@
         </div>
     </div>
 </main>
-<footer></footer>
      
 <script src="../../../assets/js/pw_strenght.js"></script>

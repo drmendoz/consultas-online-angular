@@ -1,9 +1,6 @@
 <div class="layer"></div>
 	<!-- Mobile menu overlay mask -->
-	<div id="preloader">
-		<div data-loader="circle-side"></div>
-	</div>
-<app-top-bar></app-top-bar>
+	
 <main>
     <div class="bg_color_2">
         <div class="container margin_60_35">
@@ -31,16 +28,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input class="btn_1" type="submit" value="Ingresar">
+                                <input  *ngIf="!service.loading" [disabled]="!form.valid" class="btn_1" type="submit" value="Ingresar">
                                 <a href="index.html"></a>
                             </div>
                         </div>
                     </div>
+                    <i *ngIf="service.loading"  class="fa fa-spinner fa-spin fa-3x"></i>
                 </form>
-                <p class="text-center link_bright">¿Aún no tienes una cuenta? <a [routerLink]="['register']" routerLinkActive="active"><strong>Registrate Ahora!</strong></a></p>
+                <p class="text-center link_bright">¿Aún no tienes una cuenta? <a href="/register"><strong>Registrate Ahora!</strong></a></p>
             </div>
             <!-- /login -->
         </div>
     </div>
 </main>
-<app-footer></app-footer>

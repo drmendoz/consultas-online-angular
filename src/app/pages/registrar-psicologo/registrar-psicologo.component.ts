@@ -17,8 +17,6 @@ export class RegistrarPsicologoComponent implements OnInit,AfterViewInit {
     "contrasena": "",
     "imagen": "",
     "telefono": "",
-    "ciudad":"",
-    "pais":"",
     "UsuarioPsicologo": {
         "edad": "",
         "direccion": "",

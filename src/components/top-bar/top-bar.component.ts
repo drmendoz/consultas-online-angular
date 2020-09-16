@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from '../../app/services/request.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public service:RequestService) { }
   ngOnInit(): void {
   }
 
