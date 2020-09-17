@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-xl-8 col-lg-8">
                 <div class="box_general_3 cart">
-                    
+
 
                     <!-- Stepers Wrapper -->
                     <ul class="stepper stepper-vertical">
@@ -108,14 +108,14 @@
                                 </div>
                                 <!--End row -->
 
-                                
+
                                 <div class="btn_1 mx-auto" id="btn_info">Confirmar Informacion de pago</div>
                             </div>
                             <hr />
                             <!--End step -->
 
 
-                            
+
                             <!--End step -->
                             <div id="policy">
                                 <h4>Política de Cancelación</h4>
@@ -149,20 +149,14 @@
                                 <li>Hora: <strong class="float-right">10.30 am</strong></li>
                                 <li>
                                     Nombre del Psic.:
-                                    <strong class="float-right">Psic. Eliza Armaza</strong>
+                                    <strong class="float-right">{{service.consulta.doctor.UsuarioPsicologo.nombre}}</strong>
                                 </li>
                             </ul>
                         </div>
                         <ul class="treatments checkout clearfix">
                             <li>
-                                Inhibición del deseo
-                                <strong class="float-right">$45</strong>
-                            </li>
-                            <li>
-                                Eyaculación Precoz <strong class="float-right">$50</strong>
-                            </li>
-                            <li class="total">
-                                Total <strong class="float-right">$95</strong>
+                                {{service.consulta.tratamiento.descripcion}}
+                                <strong class="float-right">${{service.consulta.tratamiento.precio}}</strong>
                             </li>
                         </ul>
                         <hr />

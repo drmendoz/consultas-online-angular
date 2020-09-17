@@ -9,13 +9,37 @@ import { Router } from '@angular/router';
 })
 export class CrearConsultaComponent implements OnInit {
  
-  consulta:any;
+  consulta={
+    fecha:'',
+    doctor:{
+      id:'',
+      usuario:'',
+      edad:'',
+      direccion:'',
+      longitud:'',
+      latitud:'',
+      descripcion:'',
+      fecha_creacion:'',
+      fecha_actualizacion:'',
+      estado:'',
+      UsuarioPsicologo:{
+        imagen:'',
+        nombre:''
+      }
+    },
+    tratamiento:{
+      id:'',
+      detalle:'',
+      precio:''
+    },
+    total:''
+  }
    tratamientos=[]
 
-  constructor(public service:RequestService,private router:Router) { }
+  constructor(public service: RequestService,private router: Router) { }
 
   ngOnInit(): void {
-    this.consulta= this.service.consulta
+    this.consulta.doctor= this.service.consulta.doctor;
     this.loadScript("../../../../assets/js/bootstrap-datepicker.js")
     this.validateDoctor()
     this.getTratamientos()
@@ -48,14 +72,12 @@ export class CrearConsultaComponent implements OnInit {
   tratamientoToggle(e,tratamiento:any) {
     if (e.target.checked) {
       this.consulta.tratamiento=tratamiento;
-      console.log(this.consulta);
-    } 
-    
+    }
   }
 
-  goToBooking(){
-    this.service.consulta=this.consulta
-    this.router.navigateByUrl('/home/crear-consulta-end')
+  goToBooking(consulta:any,route:string){
+    this.service.consulta = consulta;
+    this.router.navigateByUrl(route);
   }
 
 }

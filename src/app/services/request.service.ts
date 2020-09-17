@@ -120,6 +120,25 @@ export class RequestService {
     )
   }
 
+  confirmarConsulta(data: any) {
+    this.loading = true;
+    const headers = new HttpHeaders({
+      token: this.master.apiKey
+    });
+    return new Promise(resolve => {
+      this.http.post(`${environment.apiUrl}/citas`, data,{headers}).subscribe((response: any) => {
+       this.loading=false;
+       this.router.navigateByUrl('/home/guardado')
+       resolve(true)
+      }, (error: any) => {
+        this.loading=false;
+        this.showAlert(error.error.error.detail, 'error');
+        
+        resolve(false);
+      });
+    });
+  }
+
 
   showAlert(message: string, tipo: any, confirmBtnText: string = 'Intentar nuevamente') {
     Swal.fire({

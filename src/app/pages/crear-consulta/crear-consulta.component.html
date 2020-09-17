@@ -1,11 +1,11 @@
-
-<div class="layer"></div>
+<div class="layer">
+</div>
 
 <main>
-    
+
     <div class="container margin_60">
         <div class="row">
-            
+
             <aside class="col-xl-3 col-lg-4" id="sidebar">
                 <div class="box_profile">
                     <figure>
@@ -27,14 +27,16 @@
                         <li>124 Pacientes</li>
                     </ul>
                     <ul class="contacts">
-                        <li><h6>Dirección</h6>{{service.consulta.doctor.direccion}}</li>
-                        <li><h6>Teléfono</h6><a href="tel://000434323342">+00043 4323342</a></li>
+                        <li>
+                            <h6>Dirección</h6>{{service.consulta.doctor.direccion}}</li>
+                        <li>
+                            <h6>Teléfono</h6><a href="tel://000434323342">+00043 4323342</a></li>
                     </ul>
                     <div class="text-center"><a href="https://www.google.com/maps/search/?api=1&query={{service.consulta.doctor.latitud}},{{service.consulta.doctor.longitud}}" class="btn_1 outline" target="_blank"><i class="icon_pin"></i> Ver en el Mapa</a></div>
                 </div>
             </aside>
             <!-- /asdide -->
-            
+
             <div class="col-xl-9 col-lg-8">
 
                 <div class="tabs_styled_2">
@@ -52,15 +54,15 @@
                     <!--/nav-tabs -->
 
                     <div class="tab-content">
-
                         <div class="tab-pane fade show active" id="book" role="tabpanel" aria-labelledby="book-tab">
                             <p class="lead add_bottom_30">A continuación, selecciona la fecha en la que te gustaría reservar una cita con el profesional seleccionado</p>
-                            <form>
+                            <form (ngSubmit)="goToBooking(consulta,'/home/crear-consulta-end')" #form="ngForm">
                                 <div class="main_title_3">
                                     <h3><strong>1</strong>Selecciona la Fecha</h3>
                                 </div>
+
                                 <div class="form-group add_bottom_45">
-                                    <div id="datepicker"></div>
+                                    <input [(ngModel)]="consulta.fecha" name="fecha" type="date">
                                     <input type="hidden" id="my_hidden_input">
                                     <ul class="legend">
                                         <li><strong></strong>Disponible</li>
@@ -129,25 +131,28 @@
                                     </div>
                                 </div>
                                 <!-- /row -->
-                                
+
                                 <div class="main_title_3">
                                     <h3><strong>3</strong>Seleccionar Motivo</h3>
                                 </div>
                                 <ul class="treatments clearfix">
                                     <li *ngFor="let tratamiento of tratamientos;let i = index;">
-                                        
+
                                         <div class="checkbox">
                                             <input type="checkbox" class="css-checkbox" [id]="i+1" [name]="i+1" (change)="tratamientoToggle($event,tratamiento)">
                                             <label [for]="i+1" class="css-label">{{tratamiento.descripcion}} <strong>${{tratamiento.precio}}</strong></label>
                                         </div>
                                     </li>
                                 </ul>
-                            </form>					
-                            <hr>
-                            <p class="text-center"><a [routerLink]="['/home/crear-consulta-end']" routerLinkActive="active" class="btn_1 medium">Reservar Ahora</a></p>
+
+                                <hr>
+                                <p class="text-center">
+                                    <a class="btn_1 medium"><input type="submit" value="Reservar ahora"></a>
+                                </p>
+                            </form>
                         </div>
                         <!-- /tab_1 -->
-                        
+
                         <div class="tab-pane fade" id="general" role="tabpanel" aria-labelledby="general-tab">
                             <p class="lead add_bottom_30">Psicóloga, sexóloga clínica y sex coach, además de estudiante de pedagogía. Actualmente trabaja como comunicadora en salud, educadora sexual y terapeuta. Dirige la comunidad online Sexperimentando y el centro sanitario de Gye.</p>
                             <div class="indent_title_in">
@@ -156,8 +161,8 @@
                                 <p>Psicóloga, sexóloga clínica y sex coach.</p>
                             </div>
                             <div class="wrapper_indent">
-                                <p>Es presidenta de  AETS (Asociación de Terapía Sexual y Sex Coachig) y miembro de: SEC (Sociedad Ecuatoriana de Contracepción) y AES (Asociación Ecuatoriana de Sexología).
-                                    También es autora del libro «Sexperimentando: aprende y disfruta» de la Editorial Planeta y colaboradora del programa «Saber Vivir» en TVE.</p>
+                                <p>Es presidenta de AETS (Asociación de Terapía Sexual y Sex Coachig) y miembro de: SEC (Sociedad Ecuatoriana de Contracepción) y AES (Asociación Ecuatoriana de Sexología). También es autora del libro «Sexperimentando: aprende
+                                    y disfruta» de la Editorial Planeta y colaboradora del programa «Saber Vivir» en TVE.</p>
                                 <h6>Especializaciones</h6>
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -180,9 +185,9 @@
                                 <!-- /row-->
                             </div>
                             <!-- /wrapper indent -->
-                            
+
                             <hr>
-                            
+
                             <div class="indent_title_in">
                                 <i class="pe-7s-news-paper"></i>
                                 <h3>Educación</h3>
@@ -210,20 +215,20 @@
                             <div class="wrapper_indent">
                                 <p>A continuación la lista de tipos de consulta que brinda este profesional con sus respectivos precios</p>
                                 <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Servicio - Cita</th>
-                                            <th>Precio</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let tratamiento of tratamientos">
-                                            <td>{{tratamiento.descripcion}}</td>
-                                            <td>{{tratamiento.precio}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Servicio - Cita</th>
+                                                <th>Precio</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let tratamiento of tratamientos">
+                                                <td>{{tratamiento.descripcion}}</td>
+                                                <td>{{tratamiento.precio}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <!--  End wrapper_indent -->
@@ -292,9 +297,9 @@
                                     </div>
                                 </div>
                                 <!-- /row -->
-                                
+
                                 <hr>
-                                
+
                                 <div class="review-box clearfix">
                                     <figure class="rev-thumb"><img src="https://www.ejiltalk.org/wp-content/uploads/2013/10/Merel.jpg" alt="">
                                     </figure>
