@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
   constructor(private requestServ: RequestService, private router: Router) {}
 
   canActivate(): boolean {
-    if (localStorage.psychodata) {
+    if (this.requestServ.master) {
       return true;
     }
     this.router.navigateByUrl('/login');

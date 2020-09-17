@@ -1,8 +1,5 @@
 
 <div class="layer"></div>
-<div id="preloader">
-    <div data-loader="circle-side"></div>
-</div>
 
 <main>
     
@@ -12,10 +9,10 @@
             <aside class="col-xl-3 col-lg-4" id="sidebar">
                 <div class="box_profile">
                     <figure>
-                        <img src="https://riverviewmedical.ca/wp-content/uploads/2015/11/DrCaitlinVisser_web-350x500.png" alt="" class="img-fluid">
+                        <img src="{{service.consulta.doctor.UsuarioPsicologo.imagen}}" alt="" class="img-fluid">
                     </figure>
                     <small>Sexología</small>
-                    <h1>PSIC. Eliza Armaza</h1>
+                    <h1>PSIC. {{service.consulta.doctor.UsuarioPsicologo.nombre}}</h1>
                     <span class="rating">
                         <i class="icon_star voted"></i>
                         <i class="icon_star voted"></i>
@@ -30,10 +27,10 @@
                         <li>124 Pacientes</li>
                     </ul>
                     <ul class="contacts">
-                        <li><h6>Dirección</h6>Urdesa Norte mz 9089, Guayaquil, 11220</li>
+                        <li><h6>Dirección</h6>{{service.consulta.doctor.direccion}}</li>
                         <li><h6>Teléfono</h6><a href="tel://000434323342">+00043 4323342</a></li>
                     </ul>
-                    <div class="text-center"><a href="https://goo.gl/maps/3CmnzTAGwPZad6G26" class="btn_1 outline" target="_blank"><i class="icon_pin"></i> Ver en el Mapa</a></div>
+                    <div class="text-center"><a href="https://www.google.com/maps/search/?api=1&query={{service.consulta.doctor.latitud}},{{service.consulta.doctor.longitud}}" class="btn_1 outline" target="_blank"><i class="icon_pin"></i> Ver en el Mapa</a></div>
                 </div>
             </aside>
             <!-- /asdide -->
@@ -63,7 +60,7 @@
                                     <h3><strong>1</strong>Selecciona la Fecha</h3>
                                 </div>
                                 <div class="form-group add_bottom_45">
-                                    <div id="calendar"></div>
+                                    <div id="datepicker"></div>
                                     <input type="hidden" id="my_hidden_input">
                                     <ul class="legend">
                                         <li><strong></strong>Disponible</li>
@@ -137,58 +134,17 @@
                                     <h3><strong>3</strong>Seleccionar Motivo</h3>
                                 </div>
                                 <ul class="treatments clearfix">
-                                    <li>
+                                    <li *ngFor="let tratamiento of tratamientos;let i = index;">
+                                        
                                         <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit1" name="visit1">
-                                            <label for="visit1" class="css-label">Disfunción Sexual <strong>$60</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit2" name="visit2">
-                                            <label for="visit2" class="css-label">Educación Sexual <strong>$50</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit3" name="visit3">
-                                            <label for="visit3" class="css-label">Inhibición del deseo<strong>$45</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit4" name="visit4">
-                                            <label for="visit4" class="css-label">Eyaculación Precoz <strong>$50</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit5" name="visit5">
-                                            <label for="visit5" class="css-label">Anorgasmia <strong>$60</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit6" name="visit6">
-                                            <label for="visit6" class="css-label">Vaginismo <strong>$65</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit7" name="visit7">
-                                            <label for="visit7" class="css-label">Insatisfacción general<strong>$30</strong></label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="checkbox">
-                                            <input type="checkbox" class="css-checkbox" id="visit8" name="visit8">
-                                            <label for="visit8" class="css-label">Molestias y dolor <strong>$35</strong></label>
+                                            <input type="checkbox" class="css-checkbox" [id]="i+1" [name]="i+1" (change)="tratamientoToggle($event,tratamiento)">
+                                            <label [for]="i+1" class="css-label">{{tratamiento.descripcion}} <strong>${{tratamiento.precio}}</strong></label>
                                         </div>
                                     </li>
                                 </ul>
                             </form>					
                             <hr>
-                            <p class="text-center"><a href="booking-page.html" class="btn_1 medium">Reservar Ahora</a></p>
+                            <p class="text-center"><a [routerLink]="['/home/crear-consulta-end']" routerLinkActive="active" class="btn_1 medium">Reservar Ahora</a></p>
                         </div>
                         <!-- /tab_1 -->
                         
@@ -262,29 +218,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Nueva visita del paciente</td>
-                                            <td>$20</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Consulta General</td>
-                                            <td>$25</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Anorgasmia</td>
-                                            <td>$60</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vaginismo</td>
-                                            <td>$65</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Disfunción Sexual</td>
-                                            <td>$60</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Molestias y Dolor</td>
-                                            <td>$35</td>
+                                        <tr *ngFor="let tratamiento of tratamientos">
+                                            <td>{{tratamiento.descripcion}}</td>
+                                            <td>{{tratamiento.precio}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -433,7 +369,7 @@
     <!-- /container -->
 </main>
 <script>
-    $('#calendar').datepicker({
+    $('calendar').datepicker({
         todayHighlight: true,
         daysOfWeekDisabled: [0],
         weekStart: 1,

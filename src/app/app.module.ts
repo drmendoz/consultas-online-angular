@@ -17,6 +17,7 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { PsicologosComponent } from './pages/psicologos/psicologos.component';
 import { CrearConsultaComponent } from './pages/crear-consulta/crear-consulta.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CrearConsultaEndComponent } from './pages/crear-consulta-end/crear-consulta-end.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HomeComponent } from './pages/home/home.component';
     FaqComponent,
     PsicologosComponent,
     CrearConsultaComponent,
-    HomeComponent
+    HomeComponent,
+    CrearConsultaEndComponent
   ],
   imports: [
     BrowserModule,

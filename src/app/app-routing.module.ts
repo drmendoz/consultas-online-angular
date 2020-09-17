@@ -13,6 +13,7 @@ import { LoginGuard } from './guards/login.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { CrearConsultaComponent } from './pages/crear-consulta/crear-consulta.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CrearConsultaEndComponent } from './pages/crear-consulta-end/crear-consulta-end.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
     {path:'faq',component: FaqComponent,canActivate:[AuthGuard]},
     {path:'psicologos',component:PsicologosComponent,canActivate:[AuthGuard]},
     {path:'crear-consulta',component:CrearConsultaComponent,canActivate:[AuthGuard]},
+    {path:'crear-consulta-end',component:CrearConsultaEndComponent,canActivate:[AuthGuard]}
     
   ]},
   {path: '**', redirectTo: 'login'}

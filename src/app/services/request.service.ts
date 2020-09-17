@@ -12,6 +12,7 @@ import { error } from 'protractor';
 export class RequestService {
   loading=false;
   master:any;
+  consulta:any;
   
   constructor(private http: HttpClient, private router: Router) {
     moment.locale('es');
@@ -29,6 +30,25 @@ export class RequestService {
     localStorage.setItem('psychodata', JSON.stringify(data));
   }
 
+  getTratamientos(idDoctor:string) {
+    this.loading = true;
+    const headers = new HttpHeaders({
+      token: this.master.apiKey
+    });
+    return new Promise(resolve => {
+      this.http.get(`${environment.apiUrl}/psicologos/${idDoctor}/tratamientos`,{headers}).subscribe((response: any) => {
+        this.loading = false;
+        resolve([true, response.Tratamientos]);
+      }, (error: any) => {
+        this.loading = false;
+        if (this.tokenIsValid(error.status)) {
+          this.showAlert(error.error.respuesta, 'error');
+        }
+        resolve([false]);
+      });
+    });
+  }
+  
   getPsicologos() {
     this.loading = true;
     const headers = new HttpHeaders({
@@ -41,7 +61,7 @@ export class RequestService {
       }, (error: any) => {
         this.loading = false;
         if (this.tokenIsValid(error.status)) {
-          this.showAlert(error.error.respuesta, 'error');
+          this.showAlert(error.error.error.detail, 'error');
         }
         resolve([false]);
       });
