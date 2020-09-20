@@ -24,7 +24,7 @@
                                     <div class="col-md-6 col-sm-6">
                                         <div class="form-group">
                                             <label>Edad</label>
-                                            <p></p>
+                                            <p>{{service.master.edad}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
-                                        <img src="img/payments.png" alt="Cards" class="cards" />
+                                        <img src="../../../assets/img/payments.png" alt="Cards" class="cards" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -137,7 +137,7 @@
             <!-- /col -->
             <aside class="col-xl-4 col-lg-4" id="sidebar">
                 <div class="box_general_3 booking">
-                    <form>
+                    <form (ngSubmit)="confirmarReserva()" #form="ngForm" >
                         <div class="title">
                             <h3>Tu Reserva</h3>
                         </div>
@@ -160,7 +160,7 @@
                             </li>
                         </ul>
                         <hr />
-                        <a href="confirm.html" class="btn_1 full-width">Confirmar y Pagar</a>
+                        <input type="submit" class="btn_1 full-width" value="Confirmar y pagar">
                     </form>
 
                 </div>

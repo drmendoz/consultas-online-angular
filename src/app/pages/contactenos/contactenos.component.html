@@ -48,46 +48,35 @@
                         </p>
                         <div>
                             <div id="message-contact"></div>
-                            <form method="post" action="assets/contact.php" id="contactform">
+                            <form (ngSubmit)="enviarContactenos()" #form="ngForm">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="name_contact" name="name_contact" placeholder="Nombre">
+                                            <input [(ngModel)]="contacto.nombre" type="text" class="form-control" id="name_contact" name="name_contact" placeholder="Nombre">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="lastname_contact" name="lastname_contact" placeholder="Apellido">
+                                            <input [(ngModel)]="contacto.apellido" type="text" class="form-control" id="lastname_contact" name="lastname_contact" placeholder="Apellido">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <input type="email" id="email_contact" name="email_contact" class="form-control" placeholder="Email">
+                                            <input [(ngModel)]="contacto.email" type="email" id="email_contact" name="email_contact" class="form-control" placeholder="Email">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
                                         <div class="form-group">
-                                            <input type="text" id="phone_contact" name="phone_contact" class="form-control" placeholder="Número de Teléfono">
+                                            <input [(ngModel)]="contacto.telefono" type="text" id="phone_contact" name="phone_contact" class="form-control" placeholder="Número de Teléfono">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <textarea rows="5" id="message_contact" name="message_contact" class="form-control" style="height:100px;" placeholder="Detalles"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <select class="browser-default custom-select">
-												<option value="1">Ecuador</option>
-  												<option value="2">Peru</option>
-												 <option value="3">Colombia</option>
-												</select>
+                                            <textarea [(ngModel)]="contacto.detalles" rows="5" id="message_contact" name="message_contact" class="form-control" style="height:100px;" placeholder="Detalles"></textarea>
                                         </div>
                                     </div>
                                 </div>

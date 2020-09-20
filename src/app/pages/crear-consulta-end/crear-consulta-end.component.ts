@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../../services/request.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-consulta-end',
@@ -8,21 +9,23 @@ import { RequestService } from '../../services/request.service';
 })
 export class CrearConsultaEndComponent implements OnInit {
   book={
-    fecha:"2020-09-17 23:45:21",
+    fecha:"",
     tratamiento:"",
     motivo:"",
     total: ""
    }
-  constructor(public service:RequestService) { }
+  constructor(public service:RequestService, private router:Router) { }
 
   ngOnInit(): void {
     console.log(this.service.consulta);
   }
 
-  confirmarReservea(data:any){
+  async confirmarReserva(){
+    this.book.fecha=this.service.consulta.fecha+'T'+'20:00:21.000Z';
+    this.book.total=this.service.consulta.tratamiento.precio;
     this.book.tratamiento=this.service.consulta.tratamiento.id;
-    this.book.total=this.service.consulta.precio;
-    
+    console.log(this.book)
+    await this.service.confirmarConsulta(this.book)
   }
 
 }

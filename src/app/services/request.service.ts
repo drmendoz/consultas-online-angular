@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import * as moment from 'moment';
 import { environment } from './../../environments/environment';
@@ -30,6 +30,27 @@ export class RequestService {
     localStorage.setItem('psychodata', JSON.stringify(data));
   }
 
+  async getPaises(){
+    this.loading = true;
+    return new Promise(resolve => {
+      this.http.get(`${environment.apiUrl}/paises`).subscribe((response: any) => {
+        this.loading = false;
+        resolve([true, response]);
+      }, (error: any) => {
+        this.loading = false;
+        this.showAlert(error.error.error.detail, 'error');
+        
+        resolve([false]);
+      });
+    });
+  }
+
+  async getReporte(pais:string){
+    this.loading = true;
+    window.open(`${environment.apiUrl}/psicologos/download/${pais}`)
+    
+  }
+
   getTratamientos(idDoctor:string) {
     this.loading = true;
     const headers = new HttpHeaders({
@@ -42,7 +63,7 @@ export class RequestService {
       }, (error: any) => {
         this.loading = false;
         if (this.tokenIsValid(error.status)) {
-          this.showAlert(error.error.respuesta, 'error');
+          this.showAlert(error.error.error.detail, 'error');
         }
         resolve([false]);
       });
@@ -101,6 +122,21 @@ export class RequestService {
       });
     });
   }
+  enviarContactenos(data:any){
+    this.loading = true;
+    return new Promise(resolve => {
+      this.http.post(`${environment.apiUrl}/contactanos`, data).subscribe((response: any) => {
+        this.loading = false;
+        this.showAlert("Formulario enviado exitosamente. Ya nos contactaremos con usted",'success')
+        resolve(true)
+      }, (error: any) => {
+        this.loading = false;
+        this.showAlert(error.error.error.title, 'error');
+        
+        resolve(false);
+      });
+    });
+  }
 
   registrarPsicologo(data:any){
     this.loading=true;
@@ -126,9 +162,9 @@ export class RequestService {
       token: this.master.apiKey
     });
     return new Promise(resolve => {
-      this.http.post(`${environment.apiUrl}/citas`, data,{headers}).subscribe((response: any) => {
+      this.http.post(`${environment.apiUrl}/pacientes/${this.master.usuario}/citas`, data,{headers}).subscribe((response: any) => {
        this.loading=false;
-       this.router.navigateByUrl('/home/guardado')
+       this.router.navigateByUrl('/home/exito')
        resolve(true)
       }, (error: any) => {
         this.loading=false;

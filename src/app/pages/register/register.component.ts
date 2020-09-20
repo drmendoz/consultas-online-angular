@@ -20,7 +20,8 @@ export class RegisterComponent implements OnInit {
     "imagen": "",
     "telefono": "",
     "UsuarioPaciente": {
-        "edad": ""
+        "edad": "",
+        "pais":"Ecuador"
     }
 }
   

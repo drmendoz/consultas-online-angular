@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from '../../services/request.service';
 
 @Component({
   selector: 'app-contactenos',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contactenos.component.css']
 })
 export class ContactenosComponent implements OnInit {
-
-  constructor() { }
+   contacto={
+     nombre:'',
+     apellido:'',
+     email:'',
+     telefono:'',
+     detalles:'',
+   }
+  constructor(public service:RequestService) { }
 
   ngOnInit(): void {
+  }
+
+  async enviarContactenos(){
+    await this.service.enviarContactenos(this.contacto);
+
   }
 
 }

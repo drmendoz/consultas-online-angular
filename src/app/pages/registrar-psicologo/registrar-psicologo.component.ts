@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild,AfterViewInit } from '@angular/core';
+import { Select2Option } from 'ng-select2-component';
 import { RequestService } from '../../services/request.service';
 declare var google;
 @Component({
@@ -10,6 +11,8 @@ export class RegistrarPsicologoComponent implements OnInit,AfterViewInit {
   @ViewChild('map', {static: false}) map;
   marker: any;
   conf: any;
+  paises=[]
+  pais:string;
   constructor(public requestServ: RequestService) { }
   psicologo={
     "nombre": "",
@@ -18,6 +21,7 @@ export class RegistrarPsicologoComponent implements OnInit,AfterViewInit {
     "imagen": "",
     "telefono": "",
     "UsuarioPsicologo": {
+        "pais":"",
         "edad": "",
         "direccion": "",
         "latitud": -2.2058400,
@@ -25,8 +29,8 @@ export class RegistrarPsicologoComponent implements OnInit,AfterViewInit {
         "descripcion": ""
     }
 }
-  ngOnInit(): void {
-    
+  async ngOnInit() {
+    await this.getPaises();
   }
 
   ngAfterViewInit(){
@@ -35,6 +39,20 @@ export class RegistrarPsicologoComponent implements OnInit,AfterViewInit {
 
   async registrarPsicologo() {
     await this.requestServ.registrarPsicologo(this.psicologo); 
+  }
+
+  async getPaises(){
+    const response= await this.requestServ.getPaises();
+    if (response[0]) {
+      for (const data of response[1]) {
+        const local: Select2Option = { value: data.nombre, label: data.nombre};
+        this.paises.push(local);
+      }
+    }
+  }
+
+  getReporte(){
+    this.requestServ.getReporte(this.pais);
   }
 
   chargeMap() {

@@ -77,6 +77,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="pais">Pais</label>
+                                <select2 name="categoria" [(ngModel)]="psicologo.UsuarioPsicologo.pais" [data]="paises" placeholder="Seleccionar pais...">
+                                </select2>
+                            </div>
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
@@ -94,6 +99,14 @@
                             <!-- /row -->
                             <p class="text-center add_top_30"><input type="submit" class="btn_1" value="Enviar"></p>
                             <div class="text-center"><small>Al hacer click en enviar aceptarás los términos y nos permitirás contactarte con el fin de proporcionarte mayor información.</small></div>
+                        </form>
+                        <form (ngSubmit)="getReporte()"#form="ngForm" >
+                            <div class="form-group">
+                                <label for="pais">Pais</label>
+                                <select2 name="categoria" [(ngModel)]="pais" [data]="paises" placeholder="Seleccionar pais...">
+                                </select2>
+                            </div>
+                            <p class="text-center add_top_30"><input type="submit" class="btn_1" value="Obtener psicologos"></p>
                         </form>
                     </div>
                     <!-- /box_form -->

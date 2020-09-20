@@ -18,7 +18,8 @@ import { PsicologosComponent } from './pages/psicologos/psicologos.component';
 import { CrearConsultaComponent } from './pages/crear-consulta/crear-consulta.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CrearConsultaEndComponent } from './pages/crear-consulta-end/crear-consulta-end.component';
-
+import { ExitoComponent } from './pages/exito/exito.component';
+import { Select2Module } from 'ng-select2-component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,13 +36,15 @@ import { CrearConsultaEndComponent } from './pages/crear-consulta-end/crear-cons
     PsicologosComponent,
     CrearConsultaComponent,
     HomeComponent,
-    CrearConsultaEndComponent
+    CrearConsultaEndComponent,
+    ExitoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Select2Module
   ],
   providers: [],
   bootstrap: [AppComponent]
